@@ -21,8 +21,9 @@
 			// Step 1: 创建 Chart 对象
 			const chart = new G2.Chart({
 			  container: 'firstChart', // 指定图表容器 ID
+			  forceFit: true,
 			  width : 600, // 指定图表宽度
-			  height : 300 // 指定图表高度
+			  height : 300 // 指定图表高度 
 			});
 			// Step 2: 载入数据源
 			chart.source(data);
