@@ -44,7 +44,13 @@
 				}
 			});
 			// Step 2: 载入数据源
-			chart.source(data);
+			chart.source(data,{
+            'sold': { // 对percent字段进行格式化操作,转换成%
+                formatter: function (val) {
+                    return val + '%'
+                }
+            }
+			});
 			chart.axis('xField', {
 			title: {}
  		   })
