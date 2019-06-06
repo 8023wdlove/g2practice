@@ -66,9 +66,12 @@
   });
   chart.axis('type', {
     label: {
+      offsetX: 15,
+      offsetY: -15,
       textStyle: {
         fill: '#8d8d8d',
-        fontSize: 12
+        fontSize: 12,
+        textAlign: 'start'
       }
     },
     tickLine: {
@@ -82,7 +85,7 @@
   chart.axis('value', {
     label: null,
     title: {
-      offset: 30,
+      offset: 10,
       textStyle: {
         fontSize: 12,
         fontWeight: 300
@@ -91,11 +94,11 @@
   });
   chart.legend(false);
   chart.coord().transpose();
-  chart.interval().position('type*value').size(26).opacity(1).label('value', {
+  chart.interval().position('type*value').size(10).opacity(1).label('value', {
     textStyle: {
       fill: '#8d8d8d'
     },
-    offset: 10
+    offset: 20
   });
   chart.render();
   $('.sort-button').click(function() {
