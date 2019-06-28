@@ -64,6 +64,11 @@
       alias: '销量（百万）'
     }
   });
+// 	chart.scale('type', {
+//   type: 'cat', // 声明 type 字段为分类类型
+//   values: [ 'A', 'B', 'C' ], // 重新显示的值
+//   alias: '类型' // 设置属性的别名
+// });
   chart.axis('type', {
     label: {
       offsetX: 15,
@@ -85,6 +90,7 @@
   chart.axis('value', {
     label: null,
     title: {
+			alias: '类型2222',
       offset: 10,
       textStyle: {
         fontSize: 12,

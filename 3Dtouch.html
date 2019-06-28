@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<<style>
+		.tagcloud {
+    position: relative;
+    /* margin-top: 50px; */
+    /* overflow: hidden; */
+    height: 430px;
+    margin-top: 50px;
+  }
+
+  .tagcloud a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 110px;
+    height: 110px;
+    line-height: 110px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 14px;
+    background-color: #f2f4f8;
+    text-align: center;
+    text-decoration: none;
+	overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+
+  /* .tagcloud a:hover {
+    color: #fff;
+    width: 180px;
+    height: 180px;
+    line-height: 180px;
+    text-align: center;
+    font-size: 18px;
+  } */
+
+	</style>
+	 <script src="./js/jquery-1.11.0.js"></script>
+	 <script src="./js/tagcloud.js"></script>
+	<body>
+		<div class="tagcloud">
+                <!-- <a href="http://mem.dianxiaohuo.top/mem/dataSeePlate/memberList.html" style="width: 80px;height: 80px;line-height:80px;">高价值客户</a>
+                <a href="http://mem.dianxiaohuo.top/mem/dataSeePlate/memberList.html" style="width: 200px;height: 200px;line-height:200px;">其他标签</a>
+                <a href="http://mem.dianxiaohuo.top/mem/dataSeePlate/memberList.html">沉默会员</a>
+                <a href="http://mem.dianxiaohuo.top/mem/dataSeePlate/memberList.html">自定义标签</a>
+                <a href="http://mem.dianxiaohuo.top/mem/dataSeePlate/memberList.html">潜在客户</a>
+                <a href="http://mem.dianxiaohuo.top/mem/dataSeePlate/memberList.html">价格敏感客户</a>
+                <a href="http://mem.dianxiaohuo.top/mem/dataSeePlate/memberList.html">新增会员</a>
+                <a href="http://mem.dianxiaohuo.top/mem/dataSeePlate/memberList.html">123标签</a>
+                <a href="http://mem.dianxiaohuo.top/mem/dataSeePlate/memberList.html">345标签</a>
+                <a href="http://mem.dianxiaohuo.top/mem/dataSeePlate/memberList.html">一般客户</a> -->
+        </div>
+	</body>
+	<<script>
+		$(function () {
+			var  arr = [{conut:1500,labelName:'潜在客户1'},{conut:2000,labelName:'潜力客户2'},{conut:1000,labelName:'沉默会员'},{conut:500,labelName:'价格敏感客户'},{conut:100,labelName:'新增会员'},{conut:80,labelName:'一般客户'}];
+			arr.sort((n,m)=>{
+				return m.conut-n.conut
+			})
+			
+			let rate =(150/(arr[0].conut-arr[arr.length-1].conut))
+			console.log(arr,111)
+			var str = ''
+			for(var i=0;i<arr.length;i++){
+				var width= (arr[i].conut-arr[arr.length-1].conut)*rate +70;
+				var str2 =''
+				str2=`<a href="http://mem.dianxiaohuo.top/mem/dataSeePlate/memberList.html" style="width:${width}px;height:${width}px;line-height:${width}px;">${arr[i].labelName}</a>`
+				str +=str2
+			}
+			$('.tagcloud').html(str);
+			
+    /*3D标签云*/
+    tagcloud({
+        selector: ".tagcloud",  //元素选择器
+        fontsize: 14,       //基本字体大小, 单位px
+        radius: 180,         //滚动半径, 单位px
+        mspeed: "normal",   //滚动最大速度, 取值: slow, normal(默认), fast
+        ispeed: "normal",   //滚动初速度, 取值: slow, normal(默认), fast
+        direction: 135,     //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
+        keep: false          //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
+    });
+});
+		
+		
+		
+	</script>
+</html>
